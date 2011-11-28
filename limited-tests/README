@@ -1,0 +1,27 @@
+To use this framework, copy your solution into this directory and then run
+
+./autograder_limited_part2.py -here
+
+from this directory.
+
+The autograder works by running Logisim in a command-line mode, which shows all of the ouputs
+of your processor after every clock tick. Your processor's outputs should match the reference
+ones.
+
+The expected outputs are the *.out files. The *-test.circ files are harnesses with a program
+loaded into them. The *.s and *.hex files are the source and assembled version of the test
+programs, respectively.
+
+If you want to find out how your output differs from the standard output, run something like
+the following command (this example is for the test of the disp instruction):
+
+java -jar logisim-generic-2.7.1.jar -tty table disp-test.circ  | head -n `cat disp.out | wc -l` | diff - disp.out
+
+This diffs the correct number of lines of your processor's output with the reference output.
+Unfortunately Logisim will keep running after head has consumed all the output that it will
+consume, so you should manually stop the process with Control-C after awhile.
+
+DISCLAIMER: I HAVE NOT RELEASED ALL THE TESTS WE WILL BE RUNNING ON YOUR PROCESSOR. I HAVE NOT EVEN
+RELEASED TESTS THAT COVER ALL REQUIRED INSTRUCTIONS. YOU SHOULD TEST YOUR PROCESSOR BEYOND THESE
+SIMPLE TESTS GIVEN HERE; THIS IS INTENDED TO HELP YOU TEST, NOT OBVIATE THE NEED FOR YOU TO TEST
+YOUR OWN ASSIGNMENT.
