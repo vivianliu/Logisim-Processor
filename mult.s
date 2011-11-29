@@ -1,6 +1,5 @@
 mult:
 	lui $r0 0x00
-	ori $r0 $r0 0x00
 	lw $r1 0($r0)
 	lw $r2 1($r0)
 	sw $r0 2($r0)
